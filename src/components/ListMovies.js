@@ -29,11 +29,13 @@ function ListMovies({ setCurrentMovie }) {
 
   const handleNextPage = () => {
     setCurrentPage((prev) => prev + 1);
-    window.scroll(0, 0);
+    setCurrentMovie(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const handlePrevPage = () => {
     setCurrentPage((prev) => prev - 1);
-    window.scroll(0, 0);
+    setCurrentMovie(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const isRenderPagination = () => {
     return totalPages >= 1;

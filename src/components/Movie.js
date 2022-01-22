@@ -8,7 +8,7 @@ function Movie({ movie, setCurrentMovie }) {
     const apiUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${APIKey}&language=vi-VN`;
     const response = await fetch(apiUrl).then((res) => res.json());
     setCurrentMovie(response);
-    window.scroll(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
