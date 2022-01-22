@@ -1,0 +1,90 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 80%;
+  background-color: white;
+  overflow: hidden;
+  z-index: 99;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.navbar__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 80px;
+  overflow: hidden;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.navbar__logo > img {
+  height: 80px;
+}
+.navbar__logo > p {
+  font-size: 48px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.navbar__control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar__control input {
+  display: block;
+  border: none;
+  outline: none;
+  background-color: #e5eaf6;
+  height: 40px;
+  min-width: 0;
+  padding-left: 20px;
+  font-size: 18px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+.navbar__control input::placeholder {
+  opacity: 0.7;
+}
+.navbar__control a {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  color: grey;
+  display: block;
+  height: 40px;
+  padding: 8px;
+  padding-right: 16px;
+  background-color: #e5eaf6;
+  text-decoration: none;
+}
+.navbar__control a:hover > i {
+  opacity: 0.8;
+}
+.navbar__control i {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 640px) {
+  .navbar__container {
+    flex-direction: column;
+    height: auto;
+  }
+  .navbar__control {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .navbar__control input {
+    flex-grow: 1;
+  }
+  .navbar__logo {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
