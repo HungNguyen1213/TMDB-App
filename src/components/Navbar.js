@@ -6,7 +6,7 @@ import "./css/Navbar.css";
 
 function Navbar() {
   const params = new URLSearchParams(useLocation().search);
-  const [keySearch, setKeySearch] = useState(params.get("key"));
+  const [keySearch, setKeySearch] = useState(params.get("key") || "");
   const { setCurrentPage } = useStore();
 
   const handleClick = () => {
