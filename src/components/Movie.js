@@ -1,9 +1,11 @@
 import React from "react";
 
-import { BASE_URL, W_500, APIKey } from "../store";
+import { BASE_URL, W_500, APIKey, useStore } from "../store";
 import "./css/Movie.css";
 
-function Movie({ movie, setCurrentMovie }) {
+function Movie({ movie }) {
+  const { setCurrentMovie } = useStore();
+
   const handleClick = async () => {
     const apiUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${APIKey}&language=vi-VN`;
     const response = await fetch(apiUrl).then((res) => res.json());

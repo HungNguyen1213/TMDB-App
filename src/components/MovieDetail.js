@@ -1,9 +1,10 @@
 import React from "react";
 
 import "./css/MovieDetail.css";
-import { BASE_URL, FULL_SIZE, W_500 } from "../store";
+import { BASE_URL, FULL_SIZE, W_500, useStore } from "../store";
 
-function MovieDetail({ currentMovie, setCurrentMovie }) {
+function MovieDetail() {
+  const { currentMovie, setCurrentMovie } = useStore();
   const renderReleasedDate = () => {
     const month = [
       "Jan",

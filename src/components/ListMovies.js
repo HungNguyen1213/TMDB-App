@@ -1,11 +1,11 @@
-import React, { useEffect, memo } from "react";
+import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 import { useStore, APIKey } from "../store";
 import Movie from "./Movie";
 import "./css/ListMovies.css";
 
-function ListMovies({ setCurrentMovie }) {
+function ListMovies() {
   const params = new URLSearchParams(useLocation().search);
   const keySearch = params.get("key");
   const {
@@ -15,7 +15,9 @@ function ListMovies({ setCurrentMovie }) {
     setTotalPages,
     setCurrentPage,
     currentPage,
+    setCurrentMovie,
   } = useStore();
+  const listMovieElement = useRef();
 
   useEffect(() => {
     const searchMovies = async () => {
@@ -43,17 +45,11 @@ function ListMovies({ setCurrentMovie }) {
 
   return (
     <>
-      <div className="list_movies">
+      <div ref={listMovieElement} className="list_movies">
         {movies &&
-          movies.map((movie) => (
-            <Movie
-              key={movie.id}
-              movie={movie}
-              setCurrentMovie={setCurrentMovie}
-            />
-          ))}
+          movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
       </div>
-      {(isRenderPagination() && (
+      {isRenderPagination() && (
         <div className="pagination">
           <ul>
             <li>
@@ -83,9 +79,10 @@ function ListMovies({ setCurrentMovie }) {
             </li>
           </ul>
         </div>
-      )) || <p className="message">Không tìm thấy...</p>}
+      )}
+      {totalPages === 0 && <p>Không tìm thấy...</p>}
     </>
   );
 }
 
-export default memo(ListMovies);
+export default ListMovies;

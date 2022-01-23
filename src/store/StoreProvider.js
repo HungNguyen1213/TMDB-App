@@ -6,6 +6,7 @@ const StoreProvider = ({ children }) => {
   const [movies, setMovies] = useState();
   const [totalPages, setTotalPages] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentMovie, setCurrentMovie] = useState();
   const state = {
     movies,
     totalPages,
@@ -13,6 +14,8 @@ const StoreProvider = ({ children }) => {
     setTotalPages,
     currentPage,
     setCurrentPage,
+    currentMovie,
+    setCurrentMovie,
   };
   return <Context.Provider value={state}>{children}</Context.Provider>;
 };

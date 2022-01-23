@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
 import MovieDetail from "./MovieDetail";
 import ListMovies from "./ListMovies";
+import { useStore } from "../store";
 
 function SearchResult() {
-  const [currentMovie, setCurrentMovie] = useState();
+  const { currentMovie } = useStore();
 
   return (
     <>
       <div className="container">
-        {currentMovie && (
-          <MovieDetail
-            currentMovie={currentMovie}
-            setCurrentMovie={setCurrentMovie}
-          />
-        )}
-        <ListMovies setCurrentMovie={setCurrentMovie} />
+        {currentMovie && <MovieDetail />}
+        <ListMovies />
       </div>
     </>
   );

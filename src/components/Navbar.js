@@ -7,10 +7,11 @@ import "./css/Navbar.css";
 function Navbar() {
   const params = new URLSearchParams(useLocation().search);
   const [keySearch, setKeySearch] = useState(params.get("key") || "");
-  const { setCurrentPage } = useStore();
+  const { setCurrentPage, setCurrentMovie } = useStore();
 
   const handleClick = () => {
     setCurrentPage(1);
+    setCurrentMovie(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
