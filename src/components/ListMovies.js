@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import { useStore, APIKey } from "../store";
@@ -17,7 +17,6 @@ function ListMovies() {
     currentPage,
     setCurrentMovie,
   } = useStore();
-  const listMovieElement = useRef();
 
   useEffect(() => {
     const searchMovies = async () => {
@@ -45,7 +44,7 @@ function ListMovies() {
 
   return (
     <>
-      <div ref={listMovieElement} className="list_movies">
+      <div className="list_movies">
         {movies &&
           movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
       </div>
